@@ -174,7 +174,7 @@ jqdatasdk.get_price("000001.XSHE")
   
 - get_ticks
 
-  查询股票、基金的tick数据
+  查询股票、期货的tick数据
 
   ​
   
