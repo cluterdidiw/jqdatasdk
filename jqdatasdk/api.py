@@ -339,9 +339,13 @@ def get_ticks(security, start_dt=None, end_dt=None, count=None, fields=None):
     :param start_dt: 开始日期
     :param end_dt: 截止日期
     :param count: 统计个数
-    :param fields: 期货：[time current high low volume money position a1_v a1_p b1_v b1_p]
+    :param fields: 期货：[time current(元) high(元) low(元) volume(手) money(元) position(手) a1_v a1_p b1_v b1_p]
                     股票：[time current high low volume money a1_v-a5_v a1_p-a5_p b1_v-b5_v b1_p-b5_p]
                     为None时，默认返回对应类型的所有字段
+                    a1_v ~ a5_v 卖一量 ~ 卖五量(手)
+                    a1_p ~ a5_p 卖一价 ~ 卖五价(元)
+                    b1_v ~ b5_v 买一量 ~ 买五量(手)
+                    b1_p ~ b1_p 买一价 ~ 买五价(元)
     :return:
     """
     start_dt = to_date_str(start_dt)
