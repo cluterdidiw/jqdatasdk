@@ -346,7 +346,13 @@ def get_ticks(security, start_dt=None, end_dt=None, count=None, fields=None):
     """
     start_dt = to_date_str(start_dt)
     end_dt = to_date_str(end_dt)
-    return JQDataClient.instance().get_ticks(**locals())
+    data = JQDataClient.instance().get_ticks(**locals())
+    if not data.empty:
+        # 将time列的numpy.float64 --> datetime
+        f = lambda x: "%.f" % x
+        data["time"] = data["time"].apply(f)
+        data["time"] = pd.to_datetime(data["time"], format="%Y%m%d%H%M%S%f")
+    return data
 
 
 @assert_auth
