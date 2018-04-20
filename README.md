@@ -151,7 +151,7 @@ jqdatasdk.get_price("000001.XSHE")
 
   ​
   
-- get_marginsec_stocks  
+- get_marginsec_stocks
 
   获取融券标的列表
 
